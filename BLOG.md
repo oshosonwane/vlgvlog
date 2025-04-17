@@ -20,9 +20,9 @@ The vector field is represented as u(x,t), often written as u_t(x), which descri
 
 We follow the direction vectors in the vector field across time from a fixed initial point, leading to a trajectory defined by:
 
-```
 
-```
+![](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20165932.png)
+
 
 A flow is a collection of solutions for an ODE with multiple different initial conditions.
 
@@ -69,19 +69,19 @@ When z ~ p_data, we get a marginal probability path:
 
 The density of the marginal path is given by:
 
-```
 
-```
+![](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20170048.png)
+
 
 ## Vector Fields
 
 **Conditional Vector Field**:
 
+![](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20170119.png)
 
 **Marginal Vector Field**:
-```
 
-```
+![](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20170128.png)
 
 The marginal vector field is the flow training target for which we choose a suitable conditional vector field satisfying all conditions.
 
@@ -93,9 +93,9 @@ The aim is to make the neural network u_t^θ equal to u_t^target by finding suit
 
 Flow matching loss (Mean squared error) is defined as:
 
-```
 
-```
+![](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20170218.png)
+
 
 Where p_t is the marginal probability path.
 
@@ -128,28 +128,44 @@ These equations are constructed via Brownian Motion(A stochastic trajectory wher
 #DDPM 
 
 In this process the We are adding noise step by step and the denoising it in the reverse process 
+![Cat](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20103859.png)
+
 the formula for the forward process is written as where for some beta t , q is a form of a gaussian with given mean and variance as shown in the formula here using simple algebra all the terms are written in th form of alpha which kinda direly gives us a method to predict direct noise from Xo TO Xt
 
+![Cat](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20104019.png)
 
 So why exactly are we using gaussian  property here  at least intuitively we can say that if we have a forward gaussian then we can have a backward gaussian at least approximately tbh. 
 Now there is a mathematical known fact here that if a given  forward transition kernel the reverse transition can be approximately written as (given beta is very small its very important) where mew is a mean function for Xo and Xt
 
+![Cat](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20104117.png)
+
 Now its safe to assume for a large T the final image after adding noise is approximately converted into a standard gaussian therefore q(Xt)=N(0,I)(standard gaussian )
 Now using simple bayes rule we can say that 
 
+![Cat](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20104209.png)
+
 Then by doing some simple replacements from the above derivation we can say that 
+
+![Cat](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20104248.png)
 
 Now in order to find the P theta term in the given formula we can say
 
-We just need to find the mew term from the formula,now in order to find mew lets go to the starting equation for Xt as we know in order to find mew we need two things Xo and Xt  and we can just rearrange this equation and then equation of Xo in terms of Xt and epsilon that means we need to find only epsilon in order to find mew function so the whole problem for mew gets reduced to this formula 
+![Cat](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20104331.png)
 
+We just need to find the mew term from the formula,now in order to find mew lets go to the starting equation for Xt as we know in order to find mew we need two things Xo and Xt  and we can just rearrange this equation and then equation of Xo in terms of Xt and epsilon that means we need to find only epsilon in order to find mew function so the whole problem for mew gets reduced to this formula 
+![Cat](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20104411.png)
+![Cat](https://github.com/oshosonwane/vlgvlog/blob/main/Screenshots/Screenshot%202025-04-16%20104450.png)
 
 
 
 #REFERENCES
+
 https://www.practical-diffusion.org/
+
 https://youtu.be/B4oHJpEJBAA?si=rvtT_8Pa9ZjGGfcT
+
 https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
+
 https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
 
 
